@@ -1,10 +1,12 @@
 # probspace_kaokore_status_takasan
 # はじめに
 こちらは2022年にProbSpaceにて開催されたコンペティション「日本画の登場人物分類」の解法および使用コードになります。
+
 URL：https://comp.probspace.com/competitions/kaokore_status
 
 # タスクの概要
 日本画のデータセット「KaoKore」を使って、各画像から登場人物の身分を分類する（４クラス分類）。
+
 評価指標は、Macro F1 Score。
 
 <p align="center">
