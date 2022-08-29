@@ -21,9 +21,16 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
 
 # 解法解説
 
-# あまり効果がなかった手法
+# 有効だった手法
+- 擬似ラベル
+- TrivialAug
+
+# あまり有効でなかった手法
 
 # 今回試せなかった手法
+
+# 反省点
+- 実験管理
 
 # おわりに
 
