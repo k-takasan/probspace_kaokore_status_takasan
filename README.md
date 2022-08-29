@@ -51,4 +51,5 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
 最後になりましたが、関係者各位に感謝申し上げます。
 
 # 参考
-- 1st place solution  https://github.com/bysk2/probspace_kaokore_status_1st_solution
+- 1st place solution  
+https://github.com/bysk2/probspace_kaokore_status_1st_solution
