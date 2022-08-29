@@ -19,6 +19,9 @@ KaoKoreデータセット：
 https://github.com/rois-codh/kaokore/blob/master/README.md
 
 # 解法解説
+1. efficient net
+2. train.ipynb
+3. inference_ensemble.ipynb
 
 # 有効だった手法
 - 擬似ラベル
@@ -64,5 +67,5 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
 # 参考
 - 1st place solution  
 https://github.com/bysk2/probspace_kaokore_status_1st_solution
-- 1st place solution @ Nishikaでの類似コンペ
+- 1st place solution @Nishikaでの類似コンペ  
 https://github.com/3017218062/Ancient-Portrait-Classification#5
