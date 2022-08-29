@@ -4,7 +4,12 @@
 URL：https://comp.probspace.com/competitions/kaokore_status
 
 # タスクの概要
-![画像の例](images/label_example.png "label example")
+<p align="center">
+  <img src="images/dataset_example.png" width='768'>
+
+  <br>
+  データセットの画像とラベルの例。今回は身分のみの分類である。
+</p>
 
 # 解法解説
 
