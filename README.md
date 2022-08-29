@@ -46,8 +46,9 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
     - Public 11位 → Private 22位となってしまった
 
 # おわりに
-画像分類やコンペ一般に関してのノウハウを学ぶことができました。
-今回の反省点を踏まえて、また新たなコンペにも取り組んでいこうと思います。
+画像分類やコンペ一般に関してのノウハウを学ぶことができました。  
+今回の反省点を踏まえて、また新たなコンペにも取り組んでいこうと思います。  
 最後になりましたが、関係者各位に感謝申し上げます。
 
 # 参考
+- 1st place solution  https://github.com/bysk2/probspace_kaokore_status_1st_solution
