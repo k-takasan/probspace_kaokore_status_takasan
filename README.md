@@ -19,9 +19,11 @@ KaoKoreデータセット：
 https://github.com/rois-codh/kaokore/blob/master/README.md
 
 # 解法解説
-1. efficient net
-2. train.ipynb
-3. inference_ensemble.ipynb
+1. ベースモデルの訓練　efficient net　train.ipynb　K-fold 最適化
+    - CNN系　網羅的
+2. 擬似ラベル　pseudo label　再学習　最適化
+3. アンサンブル　inference_ensemble.ipynb
+    - 重みつき　eff v2  serex
 
 # 有効だった手法
 - 擬似ラベル
@@ -51,7 +53,7 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
 - ノイズとなるデータの除去
     - 顔以外の画像などがノイズとなっていた？
 - TTA
-- アンサンブル方法の検証
+- アンサンブル方法の検証（voting, blending)
 
 # 反省点
 - 実験管理をきちんとする
