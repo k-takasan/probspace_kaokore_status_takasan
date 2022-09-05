@@ -20,7 +20,7 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
 
 # 解法解説
 1. ベースモデルの訓練 (train.ipynb)　
-    - EfficientNet-B3をベースにK-fold法による最適化を行った。 
+    - EfficientNet-B3をベースに、K-fold法による最適化を行った。 
         - ベースネットワークはCNN系を網羅的に探索して決定した (他にはEfficientNet-v2, SEResNext50が同等であった)。
         - 最適化にはAugmentationの手法が有効であった。
 2. 擬似ラベルデータの作成 (pseudo_label.ipynb)
@@ -32,40 +32,54 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
 # 有効だった手法
 - 擬似ラベル
 - モデルアンサンブル (Blending)
-    - ただし最適化は行なっていない
-    - Votingも候補になるが試していない
+    - ただし重みの最適化は行っていない。
+    - Blendingの他にVotingなども候補になるが試していない。
 - Trivial Augment
+    - 1つのパラメータのみ (画像加工の強さmの最大値) でData Augmentationを行うことができる手法。
+    - ミニバッチごとにランダムに画像加工の種類とその強さを選択する。
 - Rand Augment
+    - 2つのパラメータでData Augmentationを行う。
+    - 使用する画像加工の種類nとその強さmを指定する。
+    - ミニバッチごとにランダムに画像加工の種類を選択する (mは固定)。
 - Focal Loss
+    - 不均衡データに対して有効とされる損失。
+    - 今回はCross Entropyとの重み付き平均とした (単体ではあまり効果がなかった)。
 - Cosine Annealing
+    - 学習率のスケジューリング方法の一つ。
+    - ただしスケジューリング方法の最適化は行なっていない。
 
 # あまり有効でなかった手法
-- Lable Smoothing
-- Warm up
+- Label Smoothing
+    - 過学習の抑制につながるとされるが、あまり効果はなかった。
 - Class weight
+    - Cross Entropyにおいて少数クラスの重み付けを行なったが、あまり効果はなかった。
 - Fine tuning
-- 対照学習
+    - 学習済みモデルの前段をフリーズさせて学習を行ったが、あまり効果はなかった。
 
 # 今回試せなかった手法
-- ViT, Swin
-- 距離学習
-- Optuna
+- Vision Transformer, Swin Transformer
+    - 今回上位入賞者が使用していた。
+- 深層距離学習
+    - 検討はしたが実装できなかった。
+    - 顔認識などに用いられる。
+- Optunaによるハイパラ最適化
 - AdamW
+    - Adamの改良版。
 - 少数クラス（平民）への対処
-    - 平民のデータが少なく、精度が低くなっていた
-        - 貴族かそれ以外の2値分類 → 3クラス分類などの工夫をする
-        - GANによるData Augmentationを行う
-        - ダウンサンプリング
+    - 平民のデータが少なく、精度が低くなっていた。
+        - 貴族かそれ以外の2値分類 → 3クラス分類などの工夫をする。
+        - GANによるData Augmentationを行う。
+        - ダウンサンプリングを行う。
 - ノイズとなるデータの除去
     - 顔以外の画像などがノイズとなっていた？
-- TTA
-- アンサンブル方法の検証（voting, blending)
+- TTA (Test-Time Augmentation)
+    - 推論時にもAugmentationを行う手法。
 
 # 反省点
 - 実験管理をきちんとする
-    - 序盤は場当たり的に行っていたので、終盤に何をすべきかわかりにくくなってしまった
+    - 序盤は場当たり的に行っていたので、終盤に何をすべきかわかりにくくなってしまった。
 - LBに最適化しすぎない（LBスコアとCVスコアと照らし合わせる）
-    - Public 11位 → Private 22位となってしまった
+    - Public 11位 → Private 22位となってしまった。
 
 # おわりに
 画像分類やコンペ一般に関してのノウハウを学ぶことができました。  
