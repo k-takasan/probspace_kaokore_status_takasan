@@ -55,6 +55,8 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
     - Cross Entropyにおいて少数クラスの重み付けを行なったが、あまり効果はなかった。
 - Fine tuning
     - 学習済みモデルの前段をフリーズさせて学習を行ったが、あまり効果はなかった。
+- TTA (Test-Time Augmentation)
+    - 推論時にもAugmentationを行う手法、あまり効果はなかった。
 
 # 今回試せなかった手法
 - Vision Transformer, Swin Transformer
@@ -72,13 +74,12 @@ https://github.com/rois-codh/kaokore/blob/master/README.md
         - ダウンサンプリングを行う。
 - ノイズとなるデータの除去
     - 顔以外の画像などがノイズとなっていた？
-- TTA (Test-Time Augmentation)
-    - 推論時にもAugmentationを行う手法。
+
 
 # 反省点
 - 実験管理をきちんとする
     - 序盤は場当たり的に行っていたので、終盤に何をすべきかわかりにくくなってしまった。
-- LBに最適化しすぎない（LBスコアとCVスコアと照らし合わせる）
+- LBに最適化しすぎない（LBスコアとCVスコアを照らし合わせる）
     - Public 11位 → Private 22位となってしまった。
 
 # おわりに
