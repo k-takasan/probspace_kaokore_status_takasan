@@ -6,28 +6,34 @@ URL：https://comp.probspace.com/competitions/kaokore_status
 
 # タスクの概要
 日本画のデータセット「KaoKore」を使って、各画像から登場人物の身分を分類する（４クラス分類）。  
-評価指標は、Macro F1 Score。
+評価指標はMacro F1 Scoreとする。
 
 <p align="center">
   <img src="images/label_example.png" width='700'>
 
   <br>
-  データセットの画像とラベルの例。今回は身分のみの分類である。
+  データセットの画像とラベルの例。今回は身分のみの分類となる。
 </p>
 
 KaoKoreデータセット：
 https://github.com/rois-codh/kaokore/blob/master/README.md
 
 # 解法解説
-1. ベースモデルの訓練　efficient net　train.ipynb　K-fold 最適化
-    - CNN系　網羅的
-2. 擬似ラベル　pseudo label　再学習　最適化
-3. アンサンブル　inference_ensemble.ipynb
-    - 重みつき　eff v2  serex
+1. ベースモデルの訓練 (train.ipynb)　
+    - EfficientNet-B3をベースにK-fold法による最適化を行った。 
+        - ベースネットワークはCNN系を網羅的に探索して決定した (他にはEfficientNet-v2, SEResNext50が同等であった)。
+        - 最適化にはAugmentationの手法が有効であった。
+2. 擬似ラベルデータの作成 (pseudo_label.ipynb)
+    - 1で最適化したモデルから、テストデータの確度が高いものに対して擬似ラベルを作成した。
+    - 作成した擬似ラベルデータを用いてモデルの再学習を行った。
+3. モデルアンサンブルによる推論 (inference_ensemble.ipynb)
+    - 1,2の手順をEfficientNet-v2, SEResNext50でも行い、合計3つのモデルでアンサンブル(Blending)を行った。
 
 # 有効だった手法
 - 擬似ラベル
-- アンサンブル
+- モデルアンサンブル (Blending)
+    - ただし最適化は行なっていない
+    - Votingも候補になるが試していない
 - Trivial Augment
 - Rand Augment
 - Focal Loss
